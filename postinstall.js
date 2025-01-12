@@ -1,13 +1,5 @@
 const { execSync } = require('child_process');
 const chalk = require("chalk")
-const { version } = require("./package.json")
-
-try {
-  execSync('git clone https://github.com/JosipFX1/arc.aoi');
-  console.log(chalk.green(`✅ Installed arc.aoi! Version: ${version}`));
-} catch (error) {
-  console.error(chalk.red('❌ Failed to clone repository. If it has been cloned already, Pull will be executed. ❌', error));
-}
 
 try {
   execSync('git pull .');
