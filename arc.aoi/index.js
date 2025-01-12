@@ -1,6 +1,6 @@
 const { ArcFunctions } = require("./arcfunctions.js");
 const chalk = require("chalk")
-const { version } = require("./package.json")
+const { version } = require('../package.json');
 
 module.exports = {
   ArcFunctions
