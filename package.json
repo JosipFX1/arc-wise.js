@@ -2,7 +2,7 @@
   "name": "arc.aoi",
   "version": "1.0.2",
   "description": "Arc.aoi is a Simple & Useful package created by JosipFX, which contains Custom Functions that literally make a new Coding Language! Its goal is to make it “literal” & “easy” as it can be!",
-  "main": "index.js",
+  "main": "arc.aoi/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "npm run postinstall"
