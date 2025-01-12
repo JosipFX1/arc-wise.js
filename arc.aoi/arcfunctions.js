@@ -17,3 +17,7 @@ class ArcFunctions {
     });
     }
 }
+
+module.exports = {
+  ArcFunctions
+};
