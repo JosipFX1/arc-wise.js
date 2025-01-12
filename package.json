@@ -5,7 +5,7 @@
   "main": "arc.aoi/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "aoijsmodified": "npm install https://github.com/JosipFX1/aoi.js-arc.aoi && echo \"Successfully installed the modified version of aoi.js. Please do not use any other as this is optimized and used for arc.aoi!\""
+    "aoijsmodified": "npm install https://github.com/JosipFX1/aoi.js-arc.aoi && echo Successfully installed the modified version of aoi.js. Please do not use any other as this is optimized and used for arc.aoi!"
   },
   "repository": {
     "type": "git",
