@@ -23,10 +23,10 @@ class ArcFunctions {
 
     client.functionManager.createFunction({
       name: "$reminder",
-      params: ["message", "arcTime", "user", "channel", "timeoutMessage", "dmUser"],
+      params: ["message", "time", "user", "channel", "timeoutMessage", "dmUser"],
       type: "aoi.js",
       code: `
-      $setTimeout[reminder;$get[arcTime];{"message": "$get[message]", "user": "$get[user]", "channel": "$get[channel]", "dmUser": "$get[dmUser]", "timeoutMessage": "$get[timeoutMessage]"}]
+      $setTimeout[reminder;$get[time];{"message": "$get[message]", "user": "$get[user]", "channel": "$get[channel]", "dmUser": "$get[dmUser]", "timeoutMessage": "$get[timeoutMessage]"}]
       
       $onlyIf[$get[dmUser]==true||$get[dmUser]==false;❌ **Invalid Usage, Parameter "dmUser" must be either \`true\` or \`false\`!**]
       $onlyIf[$userExists[$get[user]]==true;❌ **User that you have Specified does not Exist!**]
@@ -35,15 +35,15 @@ class ArcFunctions {
       $onlyIf[$get[timeoutMessage]!=;❌ **Invalid Usage, Missing \`timeoutMessage\` Parameter!**]
       $onlyIf[$get[channel]!=;❌ **Invalid Usage, Missing \`channelid\` Parameter!**]
       $onlyIf[$get[user]!=;❌ **Invalid Usage, Missing \`userID\` Parameter!**]
-      $onlyIf[$get[arcTime]!=;❌ **Invalid Usage, Missing \`time\` Parameter!**]
+      $onlyIf[$get[time]!=;❌ **Invalid Usage, Missing \`time\` Parameter!**]
       $onlyIf[$get[message]!=;❌ **Invalid Usage, Missing \`message\` Parameter!**]
       
       $let[dmUser;{dmUser}]
       $let[channel;{channel}]
       $let[user;{user}]
-      $let[arcTime;{arcTime}]
       $let[message;{message}]
-      $let[timeoutMessage;{timeoutMessage}]`
+      $let[timeoutMessage;{timeoutMessage}]
+      $let[time;{time}]`
     })
 
     client.timeoutCommand({
