@@ -23,15 +23,15 @@ class ArcFunctions {
 
     client.functionManager.createFunction({
       name: "$reminder",
-      params: ["message", "time", "userID", "channelID"],
+      params: ["message", "time", "userid", "channelid"],
       type: "aoi.js",
       code: `
       $setTimeout[reminder;{time};{"message": "{message}", "user:" "{userID}", "channel": "{channelID}"}]
       
-      $onlyIf[$userExists[{userID}]==true;❌ **User that you have Specified does not Exist!**]
-      $onlyIf[$channelExists[{channelID}]==true;❌ **Channel that you have Specified does not Exist!**]
+      $onlyIf[$userExists[{userid}]==true;❌ **User that you have Specified does not Exist!**]
+      $onlyIf[$channelExists[{channelid}]==true;❌ **Channel that you have Specified does not Exist!**]
       $onlyIf[{time}!=;❌ **Invalid Usage, Missing \`time\` Parameter!**]
-      $onlyIf[{channelID}!=;❌ **Invalid Usage, Missing \`channelID\` Parameter!**]
+      $onlyIf[{channelid}!=;❌ **Invalid Usage, Missing \`channelid\` Parameter!**]
       $onlyIf[{userID}!=;❌ **Invalid Usage, Missing \`userID\` Parameter!**]
       $onlyIf[{message}!=;❌ **Invalid Usage, Missing \`message\` Parameter!**]`
     })
