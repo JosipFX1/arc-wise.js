@@ -28,7 +28,7 @@ class ArcFunctions {
       code: `
       $setTimeout[reminder;$get[time];{"message": "$get[message]", "user": "$get[user]", "channel": "$get[channel]", "dmUser": "$get[dmUser]", "timeoutMessage": "$get[timeoutMessage]"}]
       
-      $onlyIf[$get[timeoutMessage]==true||$get[timeoutMessage]==false;❌ **Invalid Usage, Parameter "dmUser" must be either \`true\` or \`false\`!**]
+      $onlyIf[$get[dmUser]==true||$get[dmUser]==false;❌ **Invalid Usage, Parameter "dmUser" must be either \`true\` or \`false\`!**]
       $onlyIf[$userExists[$get[user]]==true;❌ **User that you have Specified does not Exist!**]
       $onlyIf[$channelExists[$get[channel]]==true;❌ **Channel that you have Specified does not Exist!**]
       $onlyIf[$get[time]!=;❌ **Invalid Usage, Missing \`time\` Parameter!**]
@@ -63,7 +63,7 @@ class ArcFunctions {
       $sendDM[
       $timeoutData[timeoutMessage]
       
-      $timeoutData[message]]
+      $timeoutData[message];$timeoutData[user]]
       $nonEscape[$channelSendMessage[$timeoutData[channel];
       $timeoutData[timeoutMessage]
       
