@@ -23,35 +23,54 @@ class ArcFunctions {
 
     client.functionManager.createFunction({
       name: "$reminder",
-      params: ["message", "time", "user", "channel"],
+      params: ["message", "time", "user", "channel", "timeoutMessage", "dmUser"],
       type: "aoi.js",
       code: `
-      $setTimeout[reminder;$get[time];{"message": "$get[message]", "user": "$get[user]", "channel": "$get[channel]"}]
+      $setTimeout[reminder;$get[time];{"message": "$get[message]", "user": "$get[user]", "channel": "$get[channel]", "dmUser": "$get[dmUser]", "timeoutMessage": "$get[timeoutMessage]"}]
       
+      $onlyIf[$get[timeoutMessage]==true || $get[timeoutMessage]==false;❌ **Invalid Usage, Parameter "dmUser" must be either \`true\` or \`false\`!**]
       $onlyIf[$userExists[$get[user]]==true;❌ **User that you have Specified does not Exist!**]
       $onlyIf[$channelExists[$get[channel]]==true;❌ **Channel that you have Specified does not Exist!**]
       $onlyIf[$get[time]!=;❌ **Invalid Usage, Missing \`time\` Parameter!**]
+      $onlyIf[$get[dmUser]!=;❌ **Invalid Usage, Missing \`dmUser\` Parameter!**]
+      $onlyIf[$get[timeoutMessage]!=;❌ **Invalid Usage, Missing \`timeoutMessage\` Parameter!**]
       $onlyIf[$get[channel]!=;❌ **Invalid Usage, Missing \`channelid\` Parameter!**]
       $onlyIf[$get[user]!=;❌ **Invalid Usage, Missing \`userID\` Parameter!**]
       $onlyIf[$get[message]!=;❌ **Invalid Usage, Missing \`message\` Parameter!**]
       
+      $let[dmUser;{dmUser}]
       $let[channel;{channel}]
       $let[user;{user}]
       $let[time;{time}]
-      $let[message;{message}]`
+      $let[message;{message}]
+      $let[timeoutMessage;{timeoutMessage}]`
     })
 
     client.timeoutCommand({
       name: "reminder",
+      $if: "old",
       code: `
-      $sendDM[
-      **Hello <@$timeoutData[user]>! Don't forget about:**
+      $if[$timeoutData[dmUser]==false]
 
-      $timeouData[message];$timeoutData[user]]
-      $channelSendMessage[$timeoutData[channel];
-      **Hello <@$timeoutData[user]>! Don't forget about:**
+      $nonEscape[$channelSendMessage[$timeoutData[channel];
+      $timeoutData[timeoutMessage]
+
+      $timeoutData[message]]]
       
-      $timeoutData[message]]`
+      $else
+      
+      $if[$timeoutData[dmUser]==true]
+      $sendDM[
+      $timeoutData[timeoutMessage]
+      
+      $timeoutData[message]]
+      $nonEscape[$channelSendMessage[$timeoutData[channel];
+      $timeoutData[timeoutMessage]
+      
+      $timeoutData[message]]]
+      
+      $endif
+      $endif`
     })
     }
 }
