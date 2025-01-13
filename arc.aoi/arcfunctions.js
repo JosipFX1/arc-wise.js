@@ -31,11 +31,11 @@ class ArcFunctions {
       $onlyIf[$get[dmUser]==true||$get[dmUser]==false;❌ **Invalid Usage, Parameter "dmUser" must be either \`true\` or \`false\`!**]
       $onlyIf[$userExists[$get[user]]==true;❌ **User that you have Specified does not Exist!**]
       $onlyIf[$channelExists[$get[channel]]==true;❌ **Channel that you have Specified does not Exist!**]
-      $onlyIf[$get[time]!=;❌ **Invalid Usage, Missing \`time\` Parameter!**]
       $onlyIf[$get[dmUser]!=;❌ **Invalid Usage, Missing \`dmUser\` Parameter!**]
       $onlyIf[$get[timeoutMessage]!=;❌ **Invalid Usage, Missing \`timeoutMessage\` Parameter!**]
       $onlyIf[$get[channel]!=;❌ **Invalid Usage, Missing \`channelid\` Parameter!**]
       $onlyIf[$get[user]!=;❌ **Invalid Usage, Missing \`userID\` Parameter!**]
+      $onlyIf[$get[time]!=;❌ **Invalid Usage, Missing \`time\` Parameter!**]
       $onlyIf[$get[message]!=;❌ **Invalid Usage, Missing \`message\` Parameter!**]
       
       $let[dmUser;{dmUser}]
