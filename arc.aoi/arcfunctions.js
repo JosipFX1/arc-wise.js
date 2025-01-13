@@ -26,7 +26,7 @@ class ArcFunctions {
       params: ["message", "time", "userid", "channelid"],
       type: "aoi.js",
       code: `
-      $setTimeout[reminder;{time};{"message": "{message}", "user:" "{userid}", "channel": "{channelid}"}]
+      $setTimeout[reminder;{time};{"message": "{message}", "user": "{userid}", "channel": "{channel}"}]
       
       $onlyIf[$userExists[{userid}]==true;❌ **User that you have Specified does not Exist!**]
       $onlyIf[$channelExists[{channelid}]==true;❌ **Channel that you have Specified does not Exist!**]
