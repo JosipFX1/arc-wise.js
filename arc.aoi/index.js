@@ -9,7 +9,7 @@ module.exports = {
 console.log(chalk.blue(`
   ╭───────────────────────────────╮
   │            arc.aoi            │
-  │      Version: ${version}      │
+  │      Version: ${version}           │
   │ https://discord.gg/MmJ3PQWVSS │
   ╰───────────────────────────────╯`))
 
