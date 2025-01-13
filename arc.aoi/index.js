@@ -6,5 +6,16 @@ module.exports = {
   ArcFunctions
 };
 
-console.log(chalk.red(`Modified Version of aoi.js is installed. Please do not install official and use modified one because its meant to be used for arc.aoi`))
-console.log(chalk.green(`arc.aoi - Version: ${version}`));
+console.log(chalk.blue(`
+  ╭───────────────────────────────╮
+  │            arc.aoi            │
+  │      Version: ${version}      │
+  │ https://discord.gg/MmJ3PQWVSS │
+  ╰───────────────────────────────╯`))
+
+console.log(chalk.red(`
+╭──────────────────────────────────────────────────────────────────────────────────────────────╮
+│            arc.aoi                                                                           │
+│      Modified Version of aoi.js is installed.                                                │
+│ Please do not install official and use modified one because its meant to be used for arc.aoi │
+╰──────────────────────────────────────────────────────────────────────────────────────────────╯`))
