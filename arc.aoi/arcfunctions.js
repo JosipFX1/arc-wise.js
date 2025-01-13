@@ -30,7 +30,6 @@ class ArcFunctions {
       
       $onlyIf[$userExists[{userID}]==true;❌ **User that you have Specified does not Exist!**]
       $onlyIf[$channelExists[{channelID}]==true;❌ **Channel that you have Specified does not Exist!**]
-      $onlyIf[$charCount[{time}]<4;❌ **Invalid Usage for \`time\` Parameter. Input normal Time ex.** \`24h, 10m, 30s, 1D\`]
       $onlyIf[{time}!=;❌ **Invalid Usage, Missing \`time\` Parameter!**]
       $onlyIf[{channelID}!=;❌ **Invalid Usage, Missing \`channelID\` Parameter!**]
       $onlyIf[{userID}!=;❌ **Invalid Usage, Missing \`userID\` Parameter!**]
