@@ -22,7 +22,7 @@ class ArcFunctions {
     });
 
     client.functionManager.createFunction({
-      name: "reminder",
+      name: "$reminder",
       params: ["message", "time", "userID", "channelID"],
       type: "aoi.js",
       code: `
