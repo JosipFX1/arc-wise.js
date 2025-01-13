@@ -1,6 +1,6 @@
 {
   "name": "arc.aoi",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Arc.aoi is a Simple & Useful package created by JosipFX, which contains Custom Functions that literally make a new Coding Language! Its goal is to make it “literal” & “easy” as it can be!",
   "main": "arc.aoi/index.js",
   "scripts": {
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JosipFX1/arc.aoi.git"
+    "url": "https://github.com/JosipFX1/arc.aoi.git"
   },
   "keywords": [
     "Discord",
@@ -30,6 +30,6 @@
     "chalk": "^4.1.2"
   },
   "publishConfig": {
-  "registry": "https://npm.pkg.github.com"
+  "JosipFX1:registry": "https://npm.pkg.github.com"
   }
 }
