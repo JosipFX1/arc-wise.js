@@ -1,6 +1,6 @@
 {
   "name": "arc.aoi",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Arc.aoi is a Simple & Useful package created by JosipFX, which contains Custom Functions that literally make a new Coding Language! Its goal is to make it “literal” & “easy” as it can be!",
   "main": "arc.aoi/index.js",
   "scripts": {
@@ -28,5 +28,8 @@
   "dependencies": {
     "aoi.js": "github:JosipFX1/aoi.js-arc.aoi",
     "chalk": "^4.1.2"
+  },
+  "publishConfig": {
+  "registry": "https://npm.pkg.github.com"
   }
 }
