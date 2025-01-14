@@ -35,7 +35,7 @@ class ArcFunctions {
       $onlyIf[$get[timeoutMessage]!=;❌ **Invalid Usage, Missing \`timeoutMessage\` Parameter!**]
       $onlyIf[$get[channel]!=;❌ **Invalid Usage, Missing \`channelid\` Parameter!**]
       $onlyIf[$get[user]!=;❌ **Invalid Usage, Missing \`userID\` Parameter!**]
-      $onlyIf[$get[time]!=;❌ **Invalid Usage, Missing \`time\` Parameter!**]
+      $onlyIf[$get[Time]!=;❌ **Invalid Usage, Missing \`time\` Parameter!**]
       $onlyIf[$get[message]!=;❌ **Invalid Usage, Missing \`message\` Parameter!**]
       
       $let[dmUser;{dmUser}]
@@ -43,7 +43,7 @@ class ArcFunctions {
       $let[user;{user}]
       $let[message;{message}]
       $let[timeoutMessage;{timeoutMessage}]
-      $let[time;{time}]`
+      $let[Time;{time}]`
     })
 
     client.timeoutCommand({
