@@ -27,13 +27,15 @@ class ArcFunctions {
       type: "aoi.js",
       $if: "old",
       code: `
-      $if[{time}!=]
+      $if[$get[time]!=]
       $setTimeout[reminder;$get[time];{"message": "$get[message]", "user": "$get[user]", "channel": "$get[channel]", "dmUser": "$get[dmUser]", "timeoutMessage": "$get[timeoutMessage]"}]
+      $let[time;{time}]
 
       $else
 
-      $if[{time}==]
+      $if[$get[time]==]
       ❌ **Invalid Usage, Missing \`time\` Parameter!**
+      $let[time;{time}]
       $endif
       $endif
 
