@@ -25,9 +25,18 @@ class ArcFunctions {
       name: "$reminder",
       params: ["message", "time", "user", "channel", "timeoutMessage", "dmUser"],
       type: "aoi.js",
+      $if: "old",
       code: `
+      $if[{time}!=]
       $setTimeout[reminder;$get[time];{"message": "$get[message]", "user": "$get[user]", "channel": "$get[channel]", "dmUser": "$get[dmUser]", "timeoutMessage": "$get[timeoutMessage]"}]
-      
+
+      $else
+
+      $if[{time}==]
+      ❌ **Invalid Usage, Missing \`time\` Parameter!**
+      $endif
+      $endif
+
       $onlyIf[$get[dmUser]==true||$get[dmUser]==false;❌ **Invalid Usage, Parameter "dmUser" must be either \`true\` or \`false\`!**]
       $onlyIf[$userExists[$get[user]]==true;❌ **User that you have Specified does not Exist!**]
       $onlyIf[$channelExists[$get[channel]]==true;❌ **Channel that you have Specified does not Exist!**]
@@ -35,7 +44,6 @@ class ArcFunctions {
       $onlyIf[$get[timeoutMessage]!=;❌ **Invalid Usage, Missing \`timeoutMessage\` Parameter!**]
       $onlyIf[$get[channel]!=;❌ **Invalid Usage, Missing \`channelid\` Parameter!**]
       $onlyIf[$get[user]!=;❌ **Invalid Usage, Missing \`userID\` Parameter!**]
-      $onlyIf[$get[Time]!=;❌ **Invalid Usage, Missing \`time\` Parameter!**]
       $onlyIf[$get[message]!=;❌ **Invalid Usage, Missing \`message\` Parameter!**]
       
       $let[dmUser;{dmUser}]
