@@ -29,13 +29,11 @@ class ArcFunctions {
       code: `
       $if[$get[time]!=]
       $setTimeout[reminder;$get[time];{"message": "$get[message]", "user": "$get[user]", "channel": "$get[channel]", "dmUser": "$get[dmUser]", "timeoutMessage": "$get[timeoutMessage]"}]
-      $let[time;{time}]
 
       $else
 
       $if[$get[time]==]
       ❌ **Invalid Usage, Missing \`time\` Parameter!**
-      $let[time;{time}]
       $endif
       $endif
 
@@ -53,7 +51,7 @@ class ArcFunctions {
       $let[user;{user}]
       $let[message;{message}]
       $let[timeoutMessage;{timeoutMessage}]
-      $let[Time;{time}]`
+      $let[time;{time}]`
     })
 
     client.timeoutCommand({
