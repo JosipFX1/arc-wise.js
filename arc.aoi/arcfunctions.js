@@ -39,7 +39,6 @@ class ArcFunctions {
 
       $onlyIf[$get[dmUser]==true||$get[dmUser]==false;❌ **Invalid Usage, Parameter "dmUser" must be either \`true\` or \`false\`!**]
       $onlyIf[$userExists[$get[user]]==true;❌ **User that you have Specified does not Exist!**]
-      $onlyIf[$channelExists[$get[channel]]==true;❌ **Channel that you have Specified does not Exist!**]
       $onlyIf[$get[dmUser]!=;❌ **Invalid Usage, Missing \`dmUser\` Parameter!**]
       $onlyIf[$get[message]!=;❌ **Invalid Usage, Missing \`message\` Parameter!**]
       
@@ -55,7 +54,8 @@ class ArcFunctions {
       $if[$timeoutData[dmUser]==false]
 
       $nonEscape[$channelSendMessage[$timeoutData[channel];
-      $timeoutData[message] ]]
+      $timeoutData[message] 
+      ]]
       
       $else
       
