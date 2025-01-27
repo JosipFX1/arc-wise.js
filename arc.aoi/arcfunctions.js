@@ -28,7 +28,7 @@ class ArcFunctions {
       $if: "old",
       code: `
       $if[$get[time]!=]
-      $setTimeout[reminder;$get[time];{"message": "$get[message]", "dmUser": "$get[dmUser]"}]
+      $setTimeout[reminder;$get[time];{"message": "$get[message]", "dmUser": "$get[dmUser]", "channel": "$channelID", "user": "$authorID"}]
 
       $else
 
@@ -63,7 +63,8 @@ class ArcFunctions {
       $timeoutData[message];$timeoutData[user]]
       
       $nonEscape[$channelSendMessage[$timeoutData[channel];
-      $timeoutData[message]]]
+      $timeoutData[message]
+      ]]
       
       $endif
       $endif`
