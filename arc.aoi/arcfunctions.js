@@ -38,7 +38,6 @@ class ArcFunctions {
       $endif
 
       $onlyIf[$get[dmUser]==true||$get[dmUser]==false;❌ **Invalid Usage, Parameter "dmUser" must be either \`true\` or \`false\`!**]
-      $onlyIf[$userExists[$get[user]]==true;❌ **User that you have Specified does not Exist!**]
       $onlyIf[$get[dmUser]!=;❌ **Invalid Usage, Missing \`dmUser\` Parameter!**]
       $onlyIf[$get[message]!=;❌ **Invalid Usage, Missing \`message\` Parameter!**]
       
