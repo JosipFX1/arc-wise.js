@@ -89,6 +89,9 @@ class ArcFunctions {
       $color[$get[color]]
       $thumbnail[$get[thumbnail]]
 
+      $endif
+      $endif
+
       $onlyIf[$get[color]!=;❌ **Invalid Usage, Missing \`claimcolor\` Parameter!**]
       $onlyIf[$get[description]!=;❌ **Invalid Usage, Missing \`claimdescription\` Parameter!**]
       $onlyIf[$get[title]!=;❌ **Invalid Usage, Missing \`claimtitle\` Parameter!**]
