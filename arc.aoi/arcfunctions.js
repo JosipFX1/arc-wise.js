@@ -101,6 +101,46 @@ class ArcFunctions {
       $let[description;{claimdescription}]
       $let[title;{claimtitle}]`
     });
+
+    client.functionManager.createFunction({
+      name: "$close",
+      params: ["time", "closetitle", "closedescription", "closecolor"],
+      type: "aoi.js",
+      $if: "old", 
+      code: `
+      $if[$get[closetitle]==]
+      $deleteChannel[$channelID]
+      
+      $wait[$get[time]]
+
+      $sendMessage[{newEmbed:
+      {description: $nonEscape[$get[description]]}
+      {color: $get[color]}}]
+
+      $else
+
+      $if[$get[closetitle]!=]
+      $deleteChannel[$channelID]
+      
+      $wait[$get[time]]
+
+      $sendMessage[{newEmbed:
+      {title: $nonEscape[$get[title]]}
+      {description: $nonEscape[$get[description]]}
+      {color: $get[color]}}]
+
+      $endif
+      $endif
+
+      $onlyIf[$get[color]!=;❌ **Invalid Usage, Missing \`closecolor\` Parameter!**]
+      $onlyIf[$get[description]!=;❌ **Invalid Usage, Missing \`closedescription\` Parameter!**]
+      $onlyIf[$get[time]!=;❌ **Invalid Usage, Missing \`time\` Parameter!**]
+
+      $let[color;{closecolor}]
+      $let[time;{time}]
+      $let[description;{closedescription}]
+      $let[title;{closetitle}]`
+    });
     }
 }
 

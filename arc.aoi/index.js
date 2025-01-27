@@ -16,7 +16,7 @@ console.log(chalk.red(`
 }, 5000)
 
 setTimeout(async () => {
-console.log(chalk.blue(`
+console.log(chalk.blueBright(`
 ╭───────────────────────────────╮
 │            arc.aoi            │
 │         Version: ${version}        │
