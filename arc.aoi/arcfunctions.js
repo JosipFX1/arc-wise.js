@@ -108,7 +108,7 @@ class ArcFunctions {
       type: "aoi.js",
       $if: "old", 
       code: `
-      $if[$get[closetitle]==]
+      $if[$get[title]==]
       $deleteChannel[$channelID]
       
       $wait[$get[time]]
@@ -119,7 +119,7 @@ class ArcFunctions {
 
       $else
 
-      $if[$get[closetitle]!=]
+      $if[$get[title]!=]
       $deleteChannel[$channelID]
       
       $wait[$get[time]]
