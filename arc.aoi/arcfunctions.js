@@ -89,6 +89,7 @@ class ArcFunctions {
       $image[$get[image]]
 
       $endif
+      $endif
       
       $let[image;{claimimage}]
       $let[color;{claimcolor}]
