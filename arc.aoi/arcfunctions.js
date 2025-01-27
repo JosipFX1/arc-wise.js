@@ -1,3 +1,5 @@
+const { version } = require('../package.json');
+
 class ArcFunctions {
   constructor(args) {
     this.args = args;
@@ -140,6 +142,14 @@ class ArcFunctions {
       $let[time;{time}]
       $let[description;{closedescription}]
       $let[title;{closetitle}]`
+    });
+
+    client.functionManager.createFunction({
+      name: "$arcVersion",
+      params: [],
+      type: "aoi.js",
+      code: `
+      <a:chomik:1328365136288808970> **arc.aoi's version is: \`${version}\`**`
     });
     }
 }
