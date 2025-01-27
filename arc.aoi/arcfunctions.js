@@ -72,26 +72,28 @@ class ArcFunctions {
 
     client.functionManager.createFunction({
       name: "$claim",
-      params: ["claimtitle", "claimdescription", "claimcolor", "claimimage"],
+      params: ["claimtitle", "claimdescription", "claimcolor", "claimthumbnail"],
       type: "aoi.js",
       $if: "old", 
       code: `
-      $if[$get[title]== && $get[image]==]
+      $if[$get[thumbnail]==]
+      $title[$get[title]]
       $description[$get[description]]
       $color[$get[color]]
 
       $else
 
-      $if[$get[title]!= && $get[image]!=]
-      $title[$get[title]
+      $if[$get[thumbnail]!=]
+      $title[$get[title]]
       $description[$get[description]]
       $color[$get[color]]
-      $image[$get[image]]
+      $thumbnail[$get[thumbnail]]
 
-      $endif
-      $endif
+      $onlyIf[$get[color]!=;❌ **Invalid Usage, Missing \`claimcolor\` Parameter!**]
+      $onlyIf[$get[description]!=;❌ **Invalid Usage, Missing \`claimdescription\` Parameter!**]
+      $onlyIf[$get[title]!=;❌ **Invalid Usage, Missing \`claimtitle\` Parameter!**]
       
-      $let[image;{claimimage}]
+      $let[thumbnail;{claimthumbnail}]
       $let[color;{claimcolor}]
       $let[description;{claimdescription}]
       $let[title;{claimtitle}]`
