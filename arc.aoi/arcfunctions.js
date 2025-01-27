@@ -13,12 +13,12 @@ class ArcFunctions {
         params: [], 
         type: "aoi.js", 
         code: `
-        *Ping:* \`$pingms\`
-        *Uptime:* \`$uptime\`
-        *Database Ping:* \`$databasePing\`
-        *RAM Usage:* \`$ram / $maxRam\`
-        *CPU Usage:* \`$cpu%\`
-        *In \`$guildCount\` Servers*`
+*Ping:* \`$pingms\`
+*Uptime:* \`$uptime\`
+*Database Ping:* \`$databasePing\`
+*RAM Usage:* \`$ram / $maxRam\`
+*CPU Usage:* \`$cpu%\`
+*In \`$guildCount\` Servers*`
     });
 
     client.functionManager.createFunction({
@@ -53,7 +53,7 @@ class ArcFunctions {
       $if[$timeoutData[dmUser]==false]
 
       $nonEscape[$channelSendMessage[$timeoutData[channel];
-      $timeoutData[message] 
+      $timeoutData[message]
       ]]
       
       $else
@@ -69,6 +69,32 @@ class ArcFunctions {
       $endif
       $endif`
     })
+
+    client.functionManager.createFunction({
+      name: "$claim",
+      params: ["claimtitle", "claimdescription", "claimcolor", "claimimage"],
+      type: "aoi.js",
+      $if: "old", 
+      code: `
+      $if[$get[title]== && $get[image]==]
+      $description[$get[description]]
+      $color[$get[color]]
+
+      $else
+
+      $if[$get[title]!= && $get[image]!=]
+      $title[$get[title]
+      $description[$get[description]]
+      $color[$get[color]]
+      $image[$get[image]]
+
+      $endif
+      
+      $let[image;{claimimage}]
+      $let[color;{claimcolor}]
+      $let[description;{claimdescription}]
+      $let[title;{claimtitle}]`
+    });
     }
 }
 
