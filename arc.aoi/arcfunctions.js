@@ -23,12 +23,12 @@ class ArcFunctions {
 
     client.functionManager.createFunction({
       name: "$reminder",
-      params: ["message", "time", "user", "channel", "timeoutMessage", "dmUser"],
+      params: ["message", "time", "dmUser"],
       type: "aoi.js",
       $if: "old",
       code: `
       $if[$get[time]!=]
-      $setTimeout[reminder;$get[time];{"message": "$get[message]", "user": "$get[user]", "channel": "$get[channel]", "dmUser": "$get[dmUser]", "timeoutMessage": "$get[timeoutMessage]"}]
+      $setTimeout[reminder;$get[time];{"message": "$get[message]", "dmUser": "$get[dmUser]"}]
 
       $else
 
@@ -41,16 +41,10 @@ class ArcFunctions {
       $onlyIf[$userExists[$get[user]]==true;❌ **User that you have Specified does not Exist!**]
       $onlyIf[$channelExists[$get[channel]]==true;❌ **Channel that you have Specified does not Exist!**]
       $onlyIf[$get[dmUser]!=;❌ **Invalid Usage, Missing \`dmUser\` Parameter!**]
-      $onlyIf[$get[timeoutMessage]!=;❌ **Invalid Usage, Missing \`timeoutMessage\` Parameter!**]
-      $onlyIf[$get[channel]!=;❌ **Invalid Usage, Missing \`channelid\` Parameter!**]
-      $onlyIf[$get[user]!=;❌ **Invalid Usage, Missing \`userID\` Parameter!**]
       $onlyIf[$get[message]!=;❌ **Invalid Usage, Missing \`message\` Parameter!**]
       
       $let[dmUser;{dmUser}]
-      $let[channel;{channel}]
-      $let[user;{user}]
       $let[message;{message}]
-      $let[timeoutMessage;{timeoutMessage}]
       $let[time;{time}]`
     })
 
@@ -61,20 +55,15 @@ class ArcFunctions {
       $if[$timeoutData[dmUser]==false]
 
       $nonEscape[$channelSendMessage[$timeoutData[channel];
-      $timeoutData[timeoutMessage]
-
-      $timeoutData[message]]]
+      $timeoutData[message] ]]
       
       $else
       
       $if[$timeoutData[dmUser]==true]
       $sendDM[
-      $timeoutData[timeoutMessage]
-      
       $timeoutData[message];$timeoutData[user]]
-      $nonEscape[$channelSendMessage[$timeoutData[channel];
-      $timeoutData[timeoutMessage]
       
+      $nonEscape[$channelSendMessage[$timeoutData[channel];
       $timeoutData[message]]]
       
       $endif
